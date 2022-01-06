@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import SearchBag from "./SearchBag";
+import { Container, Navbar } from "react-bootstrap";
+
+import "../style/_search.scss";
 
 function Search({ clients }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -23,12 +26,19 @@ function Search({ clients }) {
 
   return (
     <>
-      <input
-        type="search"
-        className="form-control my-3"
-        placeholder="Search ( Client Name / Policy Number )"
-        onChange={handleChange}
-      />
+      <nav className="nav-search">
+        <Container>
+          <div className="search-header-bar ">
+            <i className="fa fa-search"></i>
+            <input
+              type="search"
+              className="search-input"
+              placeholder="Search ( Client Name / Policy Number )"
+              onChange={handleChange}
+            />
+          </div>
+        </Container>
+      </nav>
       {searchShow ? <SearchBag filteredClients={filteredClients} /> : ""}
     </>
   );

@@ -1,0 +1,45 @@
+@import "~bootstrap/scss/bootstrap";
+
+@mixin search-box($width: 24rem) {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-flow: row nowrap;
+
+  // .search-icon
+  i {
+    position: absolute; //fixed;
+    margin: 0 !important;
+    padding-left: 1rem;
+    font-size: 150%;
+    color: #7a7e88;
+    cursor: pointer;
+  }
+
+  .search-input {
+    width: $width;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px #7a7e88;
+    color: #f7f7f7;
+    padding: 0.4rem 2.5rem 0.4rem 3rem;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+
+  .search-input:focus {
+    width: 100%;
+    outline: none !important;
+    border: none;
+    border-bottom: solid 1px #9297a1;
+  }
+}
+
+.search-header-bar {
+  @include search-box($width: 24rem);
+}
+
+.nav-search {
+  padding: 1rem 0 1rem 0;
+  background-color: #3f3f6e;
+}

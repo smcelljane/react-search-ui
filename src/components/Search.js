@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import SearchBag from "./SearchBag";
-import { Container, Navbar } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 import "../style/_search.scss";
 
-function Search({ clients }) {
+const Search = ({ clients }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchShow, setSearchShow] = useState(false);
 
+  if (!clients) return <div>No Clients</div>
   const filteredClients = clients.filter((client) => {
     return (
       client.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -28,15 +29,16 @@ function Search({ clients }) {
     <>
       <nav className="nav-search">
         <Container>
-          <div className="search-header-bar ">
-            <i className="fa fa-search"></i>
+          <header className="search-header-bar ">
+            <i className="fa fa-search" data-testid="search-icon"></i>
             <input
+              data-testid="search-input"
               type="search"
               className="search-input"
               placeholder="Search ( Client Name / Policy Number )"
               onChange={handleChange}
             />
-          </div>
+          </header>
         </Container>
       </nav>
       {searchShow ? <SearchBag filteredClients={filteredClients} /> : ""}

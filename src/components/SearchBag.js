@@ -4,7 +4,7 @@ function SearchBag({ filteredClients }) {
   const filtered = filteredClients.map((client) => (
     <SearchBagItem key={client.id} client={client} />
   ));
-  return <>{filtered}</>;
+  return <div>{filtered}</div>;
 }
 
 export default SearchBag;

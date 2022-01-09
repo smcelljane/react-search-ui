@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import SearchBag from "./SearchBag";
-import { Container } from "react-bootstrap";
 
 import "../style/_search.scss";
 
@@ -28,7 +27,7 @@ const Search = ({ clients }) => {
   return (
     <>
       <nav className="nav-search">
-        <Container>
+        <div className="container">
           <header className="search-header-bar ">
             <i className="fa fa-search" data-testid="search-icon"></i>
             <input
@@ -39,7 +38,7 @@ const Search = ({ clients }) => {
               onChange={handleChange}
             />
           </header>
-        </Container>
+        </div>
       </nav>
       {searchShow ? <SearchBag filteredClients={filteredClients} /> : ""}
     </>
